@@ -2,7 +2,6 @@
 --- Command line utility to update projects hosted on GitHub
 
 local lsh = require 'lsh'
-local inspect = require 'inspect'
 unpack = table.unpack
 require 'strong'
 

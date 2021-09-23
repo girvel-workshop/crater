@@ -1,5 +1,9 @@
 This should be a lua-based shell script, who can update a git repository and nicely display changelog.
 
+# Commit format
+
+change1 @category; chage2 @category...
+
 # Usage
 
 ```bash
