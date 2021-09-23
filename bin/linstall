@@ -2,8 +2,8 @@
 git clone $1 .linstall
 cd .linstall
 
-if [[ -f "prebuild" ]]; then
-	./prebuild
+if [[ -f "flow/prebuild" ]]; then
+	./flow/prebuild
 fi 
 
 sudo luarocks build
