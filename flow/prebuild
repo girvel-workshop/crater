@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-linstall https://github.com/girvel/lsh
+./bin/linstall https://github.com/girvel/lsh
