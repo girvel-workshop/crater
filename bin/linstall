@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+git clone $1 .linstall
+cd .linstall
+
+if [[ -f "prebuild" ]]; then
+	./prebuild
+fi 
+
+sudo luarocks build
+cd ..
+rm -rf .linstall

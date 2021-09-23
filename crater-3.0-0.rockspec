@@ -1,12 +1,12 @@
-package = 'lpull'
-version = '0.1-0'
+package = 'crater'
+version = '3.0'
 
 source = {
-	url = "https://github.com/girvel/lpull"
+	url = "https://github.com/girvel-workshop/crater"
 }
 
 description = {
-	summary = 'Command line utility to pull changes from remote git branch & display classified changes',
+	summary = 'Command line utility to work w/ git+luarocks',
 	homepage = 'https://github.com/girvel/lpull',
 	license = 'MIT'
 }
@@ -16,7 +16,8 @@ build = {
 	modules = {},
 	install = {
 		bin = {
-			"bin/lpull"
+			"bin/lpull",
+			"bin/linstall"
 		}
 	}
 }
