@@ -1,9 +1,19 @@
 #!/usr/bin/env lua5.3
 --- Command line utility to update projects hosted on GitHub
+-- Inspired by Ohmyzsh updater
 
+local colors = require 'ansicolors'
 local lsh = require 'lsh'
 unpack = table.unpack
 require 'strong'
+
+-- [[ LOCAL FUNCTIONS ]]
+
+local println = function(text)
+	print(colors(text:gsub("${", "%%{")))
+end
+
+-- [[ THE SCRIPT ITSELF ]]
 
 local old_commit = lsh('git rev-parse HEAD', true)
 
@@ -24,7 +34,9 @@ end
 local new_commits = lsh('git log --oneline %s...%s' % {old_commit, new_commit}, true) / '\n'
 local changes = {}
 
-for i, commit in ipairs(new_commits) do
+for i = #new_commits, 1, -1 do
+	local commit = new_commits[i]
+	
 	local name, category = table.unpack(commit / '@')
 
 	category = category or "other"
@@ -36,9 +48,11 @@ for i, commit in ipairs(new_commits) do
 end
 
 for category, collection in pairs(changes) do
-	print('[%s]' % category)
+	println('\n${bright}%s:${reset}\n' % category:capitalize())
 	for _, change in pairs(collection) do
-		print("- " .. change)
+		local id = change:sub(1, 7)
+		local text = change:sub(9)
+		
+		println("- ${yellow}%s${reset}\t%s" % {id, text})
 	end
-	print()
 end

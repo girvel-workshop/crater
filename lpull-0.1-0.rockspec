@@ -20,3 +20,8 @@ build = {
 		}
 	}
 }
+
+dependencies = {
+	"ansicolors",
+	"strong"
+}
