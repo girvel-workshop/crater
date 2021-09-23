@@ -5,7 +5,7 @@ local lsh = require 'lsh'
 unpack = table.unpack
 require 'strong'
 
-local old_commit = lsh 'git rev-parse HEAD'
+local old_commit = lsh('git rev-parse HEAD', true)
 
 print 'Checking for updates...'
 if not select(2, lsh 'git pull origin master') then
@@ -13,7 +13,7 @@ if not select(2, lsh 'git pull origin master') then
 	return
 end
 
-local new_commit = lsh 'git rev-parse HEAD'
+local new_commit = lsh('git rev-parse HEAD', true)
 print(old_commit:sub(1, 7), "->", new_commit:sub(1, 7))
 
 if old_commit == new_commit then
@@ -21,7 +21,7 @@ if old_commit == new_commit then
 	return
 end
 
-local new_commits = lsh('git log --oneline %s...%s' % {old_commit, new_commit}) / '\n'
+local new_commits = lsh('git log --oneline %s...%s' % {old_commit, new_commit}, true) / '\n'
 local changes = {}
 
 for i, commit in ipairs(new_commits) do

@@ -13,4 +13,4 @@ git merge 8a086e4
 
 echo -e "\n-- [[ STARTING UPDATER ]] --\n"
 
-lua5.3 ../src/lpull.lua
+lua5.3 ../bin/lpull
