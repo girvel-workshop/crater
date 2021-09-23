@@ -1,5 +1,5 @@
 package = 'crater'
-version = '3.0'
+version = '3.0-1'
 
 source = {
 	url = "https://github.com/girvel-workshop/crater"
