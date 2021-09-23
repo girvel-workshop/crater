@@ -1,4 +1,11 @@
-This should be a lua-based shell script, who can update a github git repository and nicely display changelog.
+This should be a lua-based shell script, who can update a git repository and nicely display changelog.
+
+# Usage
+
+```bash
+updater
+  [-b|--branch <name of the branch you are pulling from, default is master>]
+```
 
 # Algorythm
 

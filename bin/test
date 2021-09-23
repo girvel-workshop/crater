@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo -e "\n-- [[ PREPARING ENVIRONMENT ]] --\n"
+
+rm -rf lsh
+mkdir lsh
+cd lsh
+git init
+git remote add origin https://github.com/girvel/lsh
+
+git fetch origin
+git merge 8a086e4
+
+echo -e "\n-- [[ STARTING UPDATER ]] --\n"
+
+lua5.3 ../src/lpull.lua
